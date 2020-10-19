@@ -1,0 +1,62 @@
+\documentclass[runningheads]{llncs}
+
+\linespread{1.1}
+
+\raggedbottom
+
+\usepackage{float}
+
+\input{common.tex}
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{nameref}
+
+\addto\extrasenglish{
+  \def\sectionautorefname{Section}
+}
+
+\usepackage[
+  style   = numeric,
+  sorting = none,
+]{biblatex}
+\bibliography{paper}
+
+\begin{document}
+
+\institute{University of Innsbruck, Austria}
+
+\maketitle
+
+\vspace{8em}
+
+\begin{abstract}
+
+In this paper we present a survey conducted by comparing low-code tools with model-driven tools for developing software in order to get a better understanding of the advantages and drawbacks of both approaches and whether they are a viable alternative to traditional software development.
+
+\keywords{Low-Code \and Model-Driven \and Development}
+
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+\label{sec:introduction}
+
+\section{Evaluation of Low-Code Tools}
+\label{sec:evaluation_of_low_code_tools}
+
+\section{Evaluation of Model-Driven Tools}
+\label{sec:evaluation_of_model_driven_tools}
+
+\section{Findings}
+\label{sec:findings}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\newpage
+\printbibliography
+
+\end{document}
