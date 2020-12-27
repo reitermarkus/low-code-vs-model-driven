@@ -44,6 +44,20 @@ In this paper we present a survey conducted by comparing low-code tools with mod
 \section{Introduction}
 \label{sec:introduction}
 
+In this paper, we compare Low-Code Platforms to Model-Driven Architecture and try to determine when and where to use them over Model-Driven Architecture or vice-versa.
+
+In order to make clear to the reader the difference between the two approaches we firstly provide definitions and characteristics of each paradigm in the following sections.
+
+\subsection{What is Model-Driven Architecture?}
+\label{ssec:what_is_model_driven}
+
+With Model-Driven Architecture or Model-Driven Engineering, the goal is to standardise on models in a given domain. This is done in order to reduce code duplication and speed up development. Especially when bootstrapping a new project, it is helpful keep boilerplate code to a minimum. In addition to reducing development time, Model-Driven Engineering also tries to increase productivity by maximising compatibility between systems by using the aforementioned standardised models. \cite{wiki:model_driven_engineering} Generally, Model-Driven Architectures are geared towards developers, i.e. people who also have a good understanding of the underlying programming language(s) of the respective architecture. One common way Model-Driven Engineering is used in practice is code generation. Using code generation can speed up many processes: For example, given an API specification (e.g. using the industry standard OpenAPI \cite{openapis}), one can generate all code that is necessary for a client for this API. Swagger \cite{swagger} is one such tool which can generate API clients for many different programming languages. There are also tools which can generate a complete class hierarchy from an UML diagram; many IDEs offer such functionality either natively or via plug-ins. These are only a few examples of what falls into the category of Model-Driven Architecture, the main point is that all of them help developers reach their goal faster than doing the same tasks manually.
+
+\subsection{What is a Low-Code Platform?}
+\label{ssec:what_is_a_low_code_platform}
+
+A low-code platform, as the name implies, requires a minimal amount of code to be written. Similarly to conventional programming (i.e. using a programming language), an IDE is used for creating programs using low-code platforms. Often, the IDE is part of the low-code platform itself instead of a standalone program as is the case for conventional programming. In most cases, the IDE of the platform and the low-code platform cannot be used separately so the term low-code platform is also commonly used to refer to the IDE interface itself. Low-code platforms are targeted towards users with little to no programming experience, which means the actual programming of a low-code system is done mainly via visual building blocks. These building blocks contain pre-built templates and functionality and can be combined to form a coherent user interface. Oftentimes, custom functionality can be implemented using a click-and-drag pattern between building blocks and by assigning an action accordingly. The available building blocks vary by platform which makes them less portable than a system written using a programming language. This is one common point of critique on low-code platforms.
+
 \section{Evaluation of Low-Code Tools}
 \label{sec:evaluation_of_low_code_tools}
 
