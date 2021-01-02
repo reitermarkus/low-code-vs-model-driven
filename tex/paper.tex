@@ -79,6 +79,16 @@ Before evaluating low-code tools, we had to first determine which tools to evalu
 
 We wanted our evaluation to contain at least one open-source platform (e.g. OSBP), one platform backed by a well-known corporation (e.g. Oracle), one platform by a relatively new/unknown corporation (e.g. Simplifier), one relatively old/well-established platform (e.g. Oracle APEX or OutSystems) and one relatively new platform (e.g. Simplifier or Corteza). With the given list of low-code platforms, we could satisfy this requirement.
 
+To ensure we could properly test all of these tools, we conducted a brief first inspection of each. Therefore, the following section will give a brief explanation of each platform, any problems encountered during the initial setup and the steps necessary before being able to use the low-code platform.
+
+\subsubsection{OSBP (Open Standard Business Platform)}
+
+The Open Standard Business Platform is an open-source development environment which combines no-code and low-code with traditional application development.~\cite{osbp} It is the community version of OS.bee~\cite{osbee}, a commercial product developed by COMPEX only available to business users. The interface for the OSBP platform is implemented via a plug-in for the Eclipse IDE. The user first needs to install the Eclipse IDE, after which they can add the link to the plug-in repository and install it directly from within the IDE. Unfortunately, the latest version of OSBP was released more than one year ago and is incompatible with the latest version of the Eclipse IDE. At the time of writing (Jan 2, 2021), the last commit in the OBSP Git repository was on May 9, 2019. The latest version of the Eclipse IDE was 2020-12. The OBSP website recommended downloading Eclipse Neon, a version of the Eclipse IDE released in 2016. A non-functioning IDE plug-in for an outdated version of said IDE which has not been updated in over a year is a red flag. We therefore deemed OSBP unsuitable and decided to exclude it from further evaluation.
+
+\subsubsection{Corteza}
+
+Corteza Low Code is part of the Corteza Project~\cite{corteza} initiated by Curst Technology. The Corteza Project encompasses Corteza CRM Suite, an open-source customer relationship management tool built entirely on Corteza Low Code; Corteza Messaging, a messaging solution similar to the likes of Slack; Corteza One, a unified workspace from which to access and run web applications and finally Corteza Low Code, a low-code platform designed for building record-based applications. It is possible to try out Corteza directly in the browser by creating an account or by using an existing GitHub or Google account to sign up. We chose to set up a local demo deployment using Docker. The Corteza Project provides very good documentation on how to get started, including a ready-made `docker-compose.yml' file containing all necessary services for a full Corteza installation. After a simple call to \texttt{docker-compose up -d}, the Corteza server was running locally. The last step before being ready to use was to set up an administrator account in the local Corteza instance.
+
 \section{Evaluation of Model-Driven Tools}
 \label{sec:evaluation_of_model_driven_tools}
 
