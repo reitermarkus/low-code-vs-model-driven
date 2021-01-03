@@ -89,6 +89,36 @@ The Open Standard Business Platform is an open-source development environment wh
 
 Corteza Low Code is part of the Corteza Project~\cite{corteza} initiated by Crust Technology. The Corteza Project encompasses Corteza CRM Suite, an open-source customer relationship management tool built entirely on Corteza Low Code; Corteza Messaging, a messaging solution similar to the likes of Slack; Corteza One, a unified workspace from which to access and run web applications and finally Corteza Low Code, a low-code platform designed for building record-based applications. It is possible to try out Corteza directly in the browser by creating an account or by using an existing GitHub or Google account to sign up. We chose to set up a local demo deployment using Docker. The Corteza Project provides very good documentation on how to get started, including a ready-made \texttt{docker-compose.yml} file containing all necessary services for a full Corteza installation. After a simple call to \texttt{docker-compose up -d}, the Corteza server was running locally. The last step before being ready to use was to set up an administrator account in the local Corteza instance.
 
+\subsubsection{Oracle APEX (Application Express)}
+
+Oracle Application Express~\cite{oracle_apex} is a web-based application development platform developed by Oracle. It is backed by an Oracle database and allows building web applications using a low-code interface. Oracle offers three ways to set up APEX. The first is to use it as part of their Oracle Cloud offering, secondly, by requesting a free workspace or lastly by self-hosting using the Oracle APEX On Premise variant. For our purposes, we chose to request a free workspace for testing. We chose a name for our namespace and registered using an email address and shortly thereafter we were sent an approval email with the login details. After that, Oracle APEX was ready to use.
+
+\subsection{Developing a TODO List Application}
+
+In order to evaluate each platform, we decided to build a simple TODO List application. The user should be able to add items to the list containing a title, body text and the status of the TODO item (either “done” or “outstanding”).
+
+\subsubsection{Corteza}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{corteza-home-screen}
+  \caption{Corteza Home Screen}
+  \label{fig:corteza_home_screen}
+\end{figure}
+
+In \cref{fig:corteza_home_screen}, we can see the initial screen of the Corteza platform. By selecting “Low Code”, we reach a new view containing all existing “Low Code Namespaces”. A namespace can be thought of as an individual application within the low-code environment. In order to start with our application, we create a \texttt{todo-list} namespace. Next we need to create a module. A module in Corteza is similar to creating a database schema for a single table. For our application, we create a module containing text fields for \texttt{title} and \texttt{body} and a dropdown field for the \texttt{status}. We also mark \texttt{title} as a required field, as seen in \cref{fig:corteza_module}. Next, we need to create a page which lets us add TODOs to our list. To do this, we create a blank page and add the pre-built “Record List” block. In the “Record List” block, we select our “Todo Module” as the data source and select all fields so they are displayed in the list. The list also provides an option to allow inline editing of records. Without this option, the user has to click on the list item to open the detail page in order to edit it. Unfortunately, for some reason when enabling the checkbox to allow inline editing, we were unable to save the page with this configuration. Nevertheless, the basic functionality of our application was completely implemented in less than ten minutes.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{corteza-module}
+  \caption{Creation of a Corteza Module}
+  \label{fig:corteza_module}
+\end{figure}
+
+There are also some other features in Corteza: The “Chart Builder” allows creating charts for data in a module and it is possible add custom buttons with automations. The custom automations however, have to be fully implemented in JavaScript, so we didn't evaluate them any further given our focus on low-code.
+
+\subsubsection{Oracle APEX (Application Express)}
+
 \section{Evaluation of Model-Driven Tools}
 \label{sec:evaluation_of_model_driven_tools}
 
