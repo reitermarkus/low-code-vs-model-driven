@@ -95,7 +95,7 @@ Oracle Application Express~\cite{oracle_apex} is a web-based application develop
 
 \subsection{Developing a TODO List Application}
 
-In order to evaluate each platform, we decided to build a simple TODO List application. The user should be able to add items to the list containing a title, body text and the status of the TODO item (either “done” or “outstanding”).
+In order to evaluate each platform, we decided to build a simple TODO list application. The user should be able to add items to the list containing a title, body text and the status of the TODO item (either “done” or “outstanding”).
 
 \subsubsection{Corteza}
 
@@ -118,6 +118,30 @@ In \cref{fig:corteza_home_screen}, we can see the initial screen of the Corteza 
 There are also some other features in Corteza: The “Chart Builder” allows creating charts for data in a module and it is possible add custom buttons with automations. The custom automations however, have to be fully implemented in JavaScript, so we didn't evaluate them any further given our focus on low-code.
 
 \subsubsection{Oracle APEX (Application Express)}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{oracle-apex-home-screen}
+  \caption{Oracle APEX Home Screen}
+  \label{fig:oracle_apex_home_screen}
+\end{figure}
+
+When first logging into Oracle APEX, the user is greeted with a an overview of all applications in the workspace and a quick menu for accessing the major parts, App Builder, SQL Workshop, Team Development and App Gallery, as seen in \cref{fig:oracle_apex_home_screen}. App Builder is the low-code development interface, allowing the user to create page-based web applications, SQL Workshop is an interface to create database tables for use in low-code applications. Team Development is an integrated project management tool that helps coordinate tasks across team members when multiple people are working together in the same namespace. And finally, App Gallery is a gallery containing sample applications to use as either templates or guidance when developing a new low-code application.
+
+Before starting with our TODO list application, we decided to set up a sample application called “Sample Database Application”, which contains a basic inventory management application, including a product list which we used as a template for our TODO list.
+
+For our todo list, we created a new application called “TODO List”. The setup wizard allows customising the color theme of the application, the menu style (e.g. side menu or top menu), language as well as the application icon. Once created, we had a blank application containing a login page and a home page. The next thing we needed to do was set up a database table for our todo items. Basic SQL knowledge is required to do this since properly setting up a primary key and a unique constraint for it is necessary to be able to insert data later on. We now had a \texttt{TODOS} table containing \texttt{ID}, \texttt{STATUS}, \texttt{TITLE} and \texttt{BODY} and were now able to add a new page to our application.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{oracle-apex-create-page}
+  \caption{Oracle APEX Create Page Dialog}
+  \label{fig:oracle_apex_create_page}
+\end{figure}
+
+There are many different page styles to choose from, as seen in \cref{fig:oracle_apex_create_page}. For our use case, we chose the “Form” page template. The user simply assigns a page name and subsequently selects the  corresponding database table. The result is a form page with all fields of the database table which lets the user add new tasks and edit existing ones. Some minor visual adjustments were necessary for the form page, i.e. hiding the automatically generated \texttt{ID} and setting the \texttt{STATUS} to “outstanding” by default when adding a new task. The next step was to create a list containing our todo items with a button that opens the form page to add new ones. Similar to the page templates, there are many different building blocks to choose from. We used the same as the one used in the sample application, the “Interactive Report”, a table view with filtering options. Lastly, we added a \texttt{CREATE} button to the top of this component, linking it to the form page created earlier.
+
+Oracle APEX provides many advanced options for all building blocks which allows building custom logic by connecting them via events (e.g. mouse click or value change). It is also possible to create custom events: For example, a form page (in dialog form) provides a \texttt{Cancel Dialog} event which is fired when the \texttt{CANCEL} button is pressed.
 
 \section{Evaluation of Model-Driven Tools}
 \label{sec:evaluation_of_model_driven_tools}
