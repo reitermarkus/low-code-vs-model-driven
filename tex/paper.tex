@@ -93,6 +93,14 @@ Corteza Low Code is part of the Corteza Project~\cite{corteza} initiated by Crus
 
 Oracle Application Express~\cite{oracle_apex} is a web-based application development platform developed by Oracle. It is backed by an Oracle database and allows building web applications using a low-code interface. Oracle offers three ways to set up APEX. The first is to use it as part of their Oracle Cloud offering, secondly, by requesting a free workspace or lastly by self-hosting using the Oracle APEX On Premise variant. For our purposes, we chose to request a free workspace for testing. We chose a name for our namespace and registered using an email address and shortly thereafter we were sent an approval email with the login details. After that, Oracle APEX was ready to use.
 
+\subsubsection{Simplifier}
+
+Simplifier is, like Oracle APEX, a web-based application development environment on low-code basis. Simplifier offers a demo platform called “Simplifier Playground”, an instance of the Simplifier platform specifically set up for trialling the platform. The trial instance is reset to defaults every night, so all data stored on it will not be persisted. They also offer a “Freemium” instance, available by registering via an email address, which has no such limitation, we therefore applied for such an instance. %TODO
+
+\subsubsection{Mendix}
+
+Similar to Oracle APEX and Simplifier, Mendix is also a web-based environment for low-code application development. Mendix offerse a free tier which allows hosting unlimited applications with 1GB of memory and 0.5GB of storage per application. For more advanced needs, Mendix offers an enterprise option starting at 1875€ per month, allowing on-premises hosting and hosting on private clouds, e.g. AWS, IBM etc. For our evaluation purposes, the free tier is more than enough given there are no restrictions on the provided functionality. Creating an account was straight-forward and we were able to log in within minutes of registering. There are two options for developing applications using Mendix: The first is the web-based environment called Mendix Studio, the second a native desktop application called Mendix Studio Pro, offering more advanced options for professional users. Unfortunately Mendix Studio Pro is only available for Microsoft Windows, so we were not able to test it, the basic functionality for creating low-code application is the same in both versions of Mendix Studio, however.
+
 \subsection{Developing a TODO List Application}
 
 In order to evaluate each platform, we decided to build a simple TODO list application. The user should be able to add items to the list containing a title, body text and the status of the TODO item (either “done” or “outstanding”).
