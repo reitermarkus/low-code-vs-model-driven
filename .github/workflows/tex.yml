@@ -15,7 +15,7 @@ jobs:
       - name: Check Spelling
         uses: reitermarkus/aspell@master
         with:
-          files: tex/*.tex
+          files: '**/*.tex'
           args: >
             --lang en_GB
             --mode tex
