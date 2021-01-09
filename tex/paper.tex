@@ -200,11 +200,44 @@ Next, we added a list view to the \texttt{home} page, choosing the \texttt{task}
 
 Lastly, we created another form page (\texttt{edit\_task}), also containing the \texttt{status}, in order to be able to edit a \texttt{task}. To access it, we added a click event to the list view on the \texttt{home} page. Since the list view data source is a \texttt{task}, it is automatically passed to the data view on the \texttt{edit\_task} page.
 
-\section{Evaluation of Model-Driven Tools}
-\label{sec:evaluation_of_model_driven_tools}
+\section{Assessment of Low-Code Tools}
+\label{sec:assessment_of_tools}
 
-\section{Findings}
+In this section, we assess whether the evaluated low-code platforms are suitable for serious usage by rating the following aspects:
+
+\begin{itemize}
+  \item ease of use
+  \item customisability
+  \item scalability
+  \item suitability for mission-critical applications
+\end{itemize}
+
+\subsubsection{OSBP (Open Standard Business Platform)}
+
+Given that we were not able to evaluate OSBP, we cannot assess whether applications created using it are scalable. The same is true for determining whether it is easy to use and customisable. It not working with the latest version of the Eclipse IDE (at the time of writing) also makes it very much unsuitable for mission-critical applications.
+
+\subsubsection{Corteza}
+
+The Corteza-Low-Code platform is spreadsheet based, making is very easy to use. Creating a simple TODO List application was possible in less than 10 minutes and should be possible in less than 5 minutes once you are familiar with the platform. Apart from choosing the order of predefined building blocks, customising the layout of an application is hindered by the fact that it is spreadsheet based. The selection of pre-built blocks is very limited, as is the selection of color schemes. In terms of scalabilty, creating complex applications will be difficult using the small selection of building blocks. Process management applications which don't rely on many different UI elements, like the included Corteza CRM, can definitely be implemented in a scalable manner. Given the overall simplicity of the Corteza platform, it is certainly suitable for creating mission-critical applications.
+
+\subsubsection{Oracle APEX (Application Express)}
+
+Creating an application Oracle APEX requires basic SQL knowledge and the page designer is quite complex. Nevertheless, we were able to create our TODO List application in less than two hours by reviewing a sample application. It is also possible to completely generate the basic structure of an application using a wizard by importing data from a file, making the initial setup even easier. For further development, there is a small learning curve for getting familiar with the interface. The default theme offers three different menu types and four colour schemes and there is an option to use a custom theme. The page editor offers all basic building blocks in addition to some specialised ones, the ability to execute custom actions on page/button events and advanced options for each component. Given the flexibility and advanced options of the page designer, it is definitely possible to create scalable applications which can also be used for mission-critical usage.
+
+\subsubsection{Simplifier}
+
+The Simplifier application editor offers an extensive list of UI components for composing an application with advanced options for each component, which is of course associated with a small learning curve to get familiar with the interface. A different theme can be uploaded manually. All things considered, this make an application very customisable and the platform itself moderately easy to use. Adding custom functionality can be done easily by adding so called “stories” using a graphical editor as well, making it very scalable since these “stories” can then be composed by creating custom events. Leaving aside the technical difficulties we had during the creation of our TODO List application, we still think it is suitable for creating mission-critical applications, given the commercial support would most likely be able to sort out these issues.
+
+\subsubsection{Mendix}
+
+% TODO
+
+\section{Findings & Possible Future Work}
 \label{sec:findings}
+
+During the research process for searching low-code tools we could evaluate, we found that there is a very small number of open-source low-code platforms. Our assumption is that people in open-source community are most often developers and therefore the need for low-code platforms is simply not there. It would be interesting to investigate further into this direction, also including other types of platforms and comparing their presence in the open-source vs. the commercial space. In general, the commercial low-code platforms in our evaluation also seem to offer a more advanced feature set compared to open-source tools.
+
+% TODO: Difference between open-source/commercial, old/new, etc.
 
 \section{Conclusion}
 \label{sec:conclusion}
