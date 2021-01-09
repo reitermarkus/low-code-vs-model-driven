@@ -10,6 +10,7 @@
 
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
+\usepackage{caption}
 \usepackage[nameinlink, noabbrev]{cleveref}
 \usepackage{nameref}
 
@@ -95,7 +96,7 @@ Oracle Application Express~\cite{oracle_apex} is a web-based application develop
 
 \subsubsection{Simplifier}
 
-Simplifier is, like Oracle APEX, a web-based application development environment on low-code basis. Simplifier offers a demo platform called “Simplifier Playground”, an instance of the Simplifier platform specifically set up for trialling the platform. The trial instance is reset to defaults every night, so all data stored on it will not be persisted. They also offer a “Freemium” instance, available by registering via an email address, which has no such limitation, we therefore applied for such an instance. %TODO
+Simplifier is, like Oracle APEX, a web-based application development environment on low-code basis. Simplifier offers a demo platform called “Simplifier Playground”, an instance of the Simplifier platform specifically set up for trialling the platform. The trial instance is reset to defaults every night, so all data stored on it will not be persisted. They also offer a “Freemium” instance, available by registering via an email address, which has no such limitation, we therefore applied for such an instance. Shortly afterwards, we received a confirmation email with the URL to our instance, which unfortunately returned a “400 Bad Request” error. We contacted the Simplifier Support Team about this and decided to get familiar with the platform using the Simplifier Playground in the meantime.
 
 \subsubsection{Mendix}
 
@@ -150,6 +151,37 @@ For our TODO list, we created a new application called “TODO List”. The setu
 There are many different page styles to choose from, as seen in \cref{fig:oracle_apex_create_page}. For our use case, we chose the “Form” page template. The user simply assigns a page name and subsequently selects the  corresponding database table. The result is a form page with all fields of the database table which lets the user add new tasks and edit existing ones. Some minor visual adjustments were necessary for the form page, i.e. hiding the automatically generated \texttt{ID} and setting the \texttt{STATUS} to “outstanding” by default when adding a new task. The next step was to create a list containing our TODO items with a button that opens the form page to add new ones. Similar to the page templates, there are many different building blocks to choose from. We used the same as the one used in the sample application, the “Interactive Report”, a table view with filtering options. Lastly, we added a \texttt{CREATE} button to the top of this component, linking it to the form page created earlier.
 
 Oracle APEX provides many advanced options for all building blocks which allows building custom logic by connecting them via events (e.g. mouse click or value change). It is also possible to create custom events: For example, a form page (in dialog form) provides a \texttt{Cancel Dialog} event which is fired when the \texttt{CANCEL} button is pressed.
+
+\subsubsection{Simplifier}
+
+Upon logging into a Simplifier instance, the user sees the Simplifier dashboard, seen in \cref{fig:simplifier_dashboard}. The dashboard provides an overview of all elements represented by tiles. The “Applications” tile opens a list of applications, allowing to edit them and create new ones. “Widgets” allows viewing existing building blocks and also creating new reusable components. “Connectors” allow specifying connections to external services, e.g. for sending emails or accessing a ReST API. The “Business Objects” tile is used to create workflows by assigning connectors, plugins and functions to business objects. The “Database Designer” is used for creating database schemas
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{simplifier-dashboard}
+  \caption{Simplifier Dashboard}
+  \label{fig:simplifier_dashboard}
+\end{figure}
+
+For our TODO List application, we first needed to create a connector to a database. Simplifier allows creating a connector to common MySQL, PostgreSQL and other databases. We opted for a \texttt{SQL} connector using the SQLite backend to avoid having to set up an external database server. Next, we opened the “Database Designer” and created a schema for a todo list item, choosing the \texttt{SQL} connector we created as data source. The schema can then be edited using an entity-relationship (ER) diagram editor. We added a entity called \texttt{task} with fields for \texttt{status}, \texttt{title} and \texttt{body}. With a click of a button, we could then deploy the changes in the ER diagram to the database.
+
+Next, we created a new application called \texttt{TODO\_List}. We added a custom header bar in order to add a \texttt{add\_task} button for adding new tasks and a list view for displaying the tasks. We also added a second screen to our application containing a dialog box for adding a new task. We then opened the “Process” tab, which allows creating workflows. Workflows are represented as stories, which can be edited using a graphical interface. First, we created a workflow that opens the “Add Task dialog” which can be seen in \cref{fig:simplifier_story_overview} and \cref{fig:simplifier_story_ui_action}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{simplifier-story-overview}
+  \caption{Simplifier application process story: If the \texttt{add\_task} button is pressed, execute a \texttt{UIAction}. The inner logic of the \texttt{UIAction} is shown in \cref{fig:simplifier_story_ui_action}.}
+  \label{fig:simplifier_story_overview}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{simplifier-story-ui-action}
+  \caption{Inner logic of the UIAction component shown in \cref{fig:simplifier_story_overview}: Open the \texttt{add\_task\_dialog} dialog by setting the \texttt{dialogOpened} property to \texttt{true}.}
+  \label{fig:simplifier_story_ui_action}
+\end{figure}
+
+Unfortunately, when creating a second workflow that is supposed to create a new task in the database from the inputs in the dialog, we received a “Maximum call stack exceeded.” error. The Simplifier Playground offers two similar applications to ours, a TODO List using a ReST backend and a shopping list using a SQLite backend. We took a closer look at the shopping list application and saw that it defines custom functions for accessing the database. Our TODO List application on the other hand uses the “Data Service” connector automatically generated for the database schema we created. There were no other demo applications using the “Data Service” connector, so we could not compare our process to an existing working solution. Additionally, the TODO List demo application did also experience an error when trying to create new tasks.
 
 \subsubsection{Mendix}
 
