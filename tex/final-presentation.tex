@@ -1,0 +1,77 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+
+\usefonttheme{professionalfonts}
+\usepackage[familydefault,light]{Chivo}
+
+\input{common.tex}
+
+\date{\formatdate{12}{01}{2021}}
+
+\institute{supervised by Prof. Dr. Ruth Breu}
+
+\begin{document}
+  \maketitle
+
+  \begin{frame}{Outline}
+    \begin{itemize}
+      \item Motivation
+      \item Model-Driven Architecture
+      \item Low-Code Architecture
+      \item Criticisms
+      \item Planned Project Procedure
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Motivation}
+    \begin{itemize}
+      \item What can and can't low-code and model-driven tools do?
+      \item Are they a viable alternative to traditional development?
+      \item When to choose one approach over the other?
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Model-Driven Architecture}
+    \begin{itemize}
+      \item provides a set of guidelines for the structuring of specifications
+      \item code (fully or partially) generated from models, e.g. from UML diagrams
+      \item aimed at developers to speed up development
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Low-Code Architecture}
+    \begin{itemize}
+      \item provides pre-built application components
+      \item graphical user interface for creating both the
+            application logic as well as the user interface
+      \item typically aimed at end-users rather than developers
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Criticisms}
+    \begin{itemize}
+      \item Low-Code Architecture
+        \begin{itemize}
+          \item Unsuitable for implementing scalable and mission-critical applications.
+          \item Increase in unsupported applications built by shadow IT,
+                i.e. applications which are not controlled by a company's IT department.
+        \end{itemize}
+      \item Model-Driven Architecture
+        \begin{itemize}
+          \item UML diagrams lack details included in the code itself.
+          \item “the Code is the design” - Should models be derived from code instead of code from models?
+        \end{itemize}
+      \item Do these approaches actually make development easier and cheaper?
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Planned Project Procedure}
+    \begin{itemize}
+      \item Evaluate a set of Low-Code tools.
+      \item Evaluate a set of Model-Driven tools.
+      \item For each tool, determine what it can and can't do.
+      \item Compare the two sets with each other and draw some conclusions.
+    \end{itemize}
+  \end{frame}
+\end{document}

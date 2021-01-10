@@ -8,4 +8,5 @@ $bibtex_use = 2;
 @default_files = (
   'paper.tex',
   'initial-presentation.tex',
+  'final-presentation.tex',
 )
