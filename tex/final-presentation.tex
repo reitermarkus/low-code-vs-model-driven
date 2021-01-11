@@ -20,7 +20,9 @@
       \item Model-Driven Architecture
       \item Low-Code Architecture
       \item Criticisms
-      \item Planned Project Procedure
+      \item Evaluation of Low-Code Tools
+      \item Findings \& Future Work
+      \item Conclusion
     \end{itemize}
   \end{frame}
 
@@ -98,7 +100,8 @@
     \begin{itemize}
       \item open-source
       \item plug-in for the Eclipse IDE developed since 2016
-      \item community version of the commercial OS.bee product developed by COMPEX
+      \item community version of the commercial OS.bee product \\
+            developed by COMPEX
       \item latest version over one year old
       \item does not work with latest version of the Eclipse IDE
     \end{itemize}
@@ -115,6 +118,28 @@
     \end{itemize}
   \end{frame}
 
+  \begin{frame}{Corteza Low Code}
+    \begin{itemize}
+      \item made for building record-based management applications
+      \item process for building the test application:
+        \begin{enumerate}
+          \item create application namespace
+          \item create module for TODO List records, specifying the necessary fields (status, title, body)
+          \item create page and add a list block linked to the module
+        \end{enumerate}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[standout]{Corteza Low Code: Editor}
+    \includegraphics[width=\textwidth]{corteza-low-code-pages}
+  \end{frame}
+
+  \begin{frame}[standout]{Corteza Low Code: Application}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{corteza-low-code-crm-home}
+    \end{figure}
+  \end{frame}
+
   \begin{frame}{Oracle APEX (Application Express)}
     \begin{itemize}
       \item commercial
@@ -123,6 +148,32 @@
       \item test by signing up for an Oracle Cloud account or \\
             by requesting an APEX workspace
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Oracle APEX (Application Express)}
+    \begin{itemize}
+      \item process for building the test application:
+        \begin{enumerate}
+          \item create database table for TODO List items \\
+                (requires basic SQL knowledge)
+          \item create new blank application
+          \item add list view to home page and select \\
+                the corresponding database table
+          \item add new form page (dialog style) and select \\
+                the corresponding database table
+          \item add a button to the home page that opens the form page
+          \item add a dynamic action that refreshes the list view \\
+                when the form dialog is closed
+        \end{enumerate}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[standout]{Oracle APEX: Page Designer}
+    \includegraphics[width=\textwidth]{oracle-apex-page-designer}
+  \end{frame}
+
+  \begin{frame}[standout]{Oracle APEX: Application}
+    \includegraphics[width=\textwidth]{oracle-apex-todo-list-application}
   \end{frame}
 
   \begin{frame}{Simplifier}
@@ -135,6 +186,40 @@
     \end{itemize}
   \end{frame}
 
+  \begin{frame}{Simplifier}
+    \begin{itemize}
+      \item process for building the test application:
+        \begin{enumerate}
+          \item create database connector (SQLite)
+          \item create database schema for TODO List items and deploy to connector
+          \item add list view and button to home page
+          \item add new page containing a form with input fields and button
+          \item create processes for
+            \begin{itemize}
+              \item loading items into list view
+              \item submitting the form page
+              \item opening the form page with the button
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[standout]{Simplifier: Process}
+    \includegraphics[width=\textwidth]{simplifier-story-overview}
+  \end{frame}
+
+  \begin{frame}[standout]{Simplifier: Process}
+    \includegraphics[width=\textwidth]{simplifier-story-ui-action}
+  \end{frame}
+
+  \begin{frame}[standout]{Simplifier: Application Editor}
+    \includegraphics[width=\textwidth]{simplifier-application-editor}
+  \end{frame}
+
+  \begin{frame}[standout]{Simplifier: Application}
+    \includegraphics[width=\textwidth]{simplifier-shopping-list-application}
+  \end{frame}
+
   \begin{frame}{Mendix}
     \begin{itemize}
       \item commercial
@@ -143,5 +228,96 @@
             (Mendix Studio Pro) with advanced features
       \item test by signing up for a regular account which allows hosting unlimited applications (with 1GB of memory and 0.5GB of storage per application)
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Mendix}
+    \begin{itemize}
+      \item process for building the test application:
+        \begin{enumerate}
+          \item create blank application
+          \item add list view and button to home page, which prompts the user to select or create a new data source
+          \item create data source for TODO List items
+          \item add new form page linked to the corresponding data source
+          \item add button to home page that opens the form page
+        \end{enumerate}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[standout]{Mendix Studio}
+    \includegraphics[width=\textwidth]{mendix-studio}
+  \end{frame}
+
+  \begin{frame}[standout]{Mendix: Application}
+    \includegraphics[width=\textwidth]{mendix-todo-list-application}
+  \end{frame}
+
+  \begin{frame}{Unique Features}
+    \begin{itemize}
+      \item \textbf{Oracle APEX}
+        \begin{itemize}
+          \item Creation of applications from existing data, e.g. CSV files
+        \end{itemize}
+      \item \textbf{Mendix}
+        \begin{itemize}
+          \item AI-assisted wizard for creating custom workflows (microflows)
+          \item publishing as native mobile applications for iOS and Android
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Assessment of Low-Code Tools}
+    \begin{itemize}
+      \item ease of use
+      \item customisability
+      \item portability
+      \item scalability
+      \item suitability for mission-critical applications
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Assessment of Low-Code Tools}
+    \begin{table}[]
+    \begin{tabular}{l|l|l|l|l|l|}
+    \cline{2-6}
+                                           & \textbf{OSBP} & \textbf{Corteza} & \textbf{APEX}   & \textbf{Simplifier} & \textbf{Mendix} \\ \hline
+    \multicolumn{1}{|l|}{ease of use}      & N/A  & high    & medium & medium     & high   \\ \hline
+    \multicolumn{1}{|l|}{customisability}  & N/A  & low     & medium & medium     & high   \\ \hline
+    \multicolumn{1}{|l|}{portability}      & N/A  & medium  & low    & medium     & medium \\ \hline
+    \multicolumn{1}{|l|}{scalability}      & N/A  & medium\footnote{medium in general, high for certain types of applications, e.g. management applications} & high   & high       & high   \\ \hline
+    \multicolumn{1}{|l|}{mission-criticality} & low  & high    & high   & medium\footnote{medium only due to the problems encountered, high otherwise}    & high   \\ \hline
+    \end{tabular}
+    \end{table}
+  \end{frame}
+
+  \begin{frame}{Findings \& Future Work}
+    \begin{itemize}
+      \item very small number of open-source low-code tools
+        \begin{itemize}
+          \item assumption: open-source community mostly consists of developers, so there is no need/demand for low-code platforms
+          \item future work: investigate low-code other types of platforms and compare their presence in the open-source vs. the commercial space
+        \end{itemize}
+      \item more streamlined user interface in the more mature products like Oracle APEX and Mendix
+      \item lack of portability is a valid concern for low-code tools, \\
+            stored data may be the only element of a platform that is portable by using
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Conclusion}
+    \begin{itemize}
+      \item low-code platforms are a valid alternative to model-driven development
+      \item low-code platforms are not as flexible and limited in the ways they can be extended
+      \item choice between low-code and model-driven architecture:
+        \begin{itemize}
+          \item highly dependent on which low-code platform is used, \\
+                similar to choosing a programming language or framework for a particular task
+          \item highly dependent on the application requirements, \\
+                low-code well-suited for management applications (e.g. process management, CRM)
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}[standout]
+    Questions?
   \end{frame}
 \end{document}
