@@ -26,8 +26,8 @@
 
   \begin{frame}{Motivation}
     \begin{itemize}
-      \item What can and can't low-code and model-driven tools do?
-      \item Are they a viable alternative to traditional development?
+      \item What are the advantages and disadvantages of low-code tools do?
+      \item Are they a viable alternative to model-driven or traditional development?
       \item When to choose one approach over the other?
     \end{itemize}
   \end{frame}
@@ -35,8 +35,21 @@
   \begin{frame}{Model-Driven Architecture}
     \begin{itemize}
       \item provides a set of guidelines for the structuring of specifications
+      \item standardise on models in a given domain to reduce code duplication and speed up development
       \item code (fully or partially) generated from models, e.g. from UML diagrams
-      \item aimed at developers to speed up development
+      \item aimed at developers who have good understanding of underlying programming languages
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Model-Driven Architecture}
+    \begin{itemize}
+      \item Example: Swagger
+        \begin{itemize}
+          \item API specification given in OpenAPI format
+          \item API client is generated for the specified programming language
+          \item support for new languages/frameworks can be added by implementing a new generator
+          \item very easy to provide clients for many languages with virtually no development effort
+        \end{itemize}
     \end{itemize}
   \end{frame}
 
@@ -51,16 +64,16 @@
 
   \begin{frame}{Criticisms}
     \begin{itemize}
+      \item Model-Driven Architecture
+        \begin{itemize}
+          \item UML diagrams lack details included in the code itself.
+          \item “the Code is the design” - Should models be derived from code instead of code from models?
+        \end{itemize}
       \item Low-Code Architecture
         \begin{itemize}
           \item Unsuitable for implementing scalable and mission-critical applications.
           \item Increase in unsupported applications built by shadow IT,
                 i.e. applications which are not controlled by a company's IT department.
-        \end{itemize}
-      \item Model-Driven Architecture
-        \begin{itemize}
-          \item UML diagrams lack details included in the code itself.
-          \item “the Code is the design” - Should models be derived from code instead of code from models?
         \end{itemize}
       \item Do these approaches actually make development easier and cheaper?
     \end{itemize}
@@ -77,14 +90,14 @@
             \item new/unestablished
           \end{itemize}
       \item Set up each tool
-      \item Build test application with each tool
+      \item Build a test application (TODO List) with each tool
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Open Standard Business Platform (OSBP)}
     \begin{itemize}
       \item open-source
-      \item plug-in for the Eclipse IDE
+      \item plug-in for the Eclipse IDE developed since 2016
       \item community version of the commercial OS.bee product developed by COMPEX
       \item latest version over one year old
       \item does not work with latest version of the Eclipse IDE
@@ -94,7 +107,7 @@
   \begin{frame}{Corteza Low Code}
     \begin{itemize}
       \item open-source
-      \item part of the Corteza Project initiated by Crust Technology
+      \item part of the Corteza Project initiated by Crust Technology in 2019
       \item the Corteza Project includes a CRM solution built on top of Corteza~Low~Code, among other things
       \item web-based platform
       \item test by signing up with a GitHub or Google account or \\
